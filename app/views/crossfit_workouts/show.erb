@@ -1,0 +1,18 @@
+<h3><%= @crossfit_workout.title %></h3>
+<p><%= @crossfit_workout.content %></p>
+<p>Mood: <%= @crossfit_workout.mood %></p>
+
+<p>Created by: <%= @crossfit_workout.user.name %></p>
+
+<p>created on <%= @crossfit_workout.formatted_created_at %></p>
+
+
+<% if authorized_to_edit?(@crossfit_workout) %>
+  <a href="/crossfit_workouts/<%= @crossfit_workout.id %>/edit">Edit Entry</a>
+  <br><br>
+  <form class="" action="/crossfit_workouts/<%= @crossfit_workout.id %>" method="post">
+
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" name="" value="Delete this workout">
+  </form>
+<% end %>
