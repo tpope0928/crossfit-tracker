@@ -1,9 +1,9 @@
 class CrossfitWorkoutsController < ApplicationController
 
   get '/crossfit_workouts' do
-    @crossfit_workouts = CrossfitWorkout.all
-    erb :'crossfit_workouts/index'
-  end
+      @crossfit_workout = CrossfitWorkout.all
+      erb :'crossfit_workouts/index'
+    end
 
   # get journal_entries/new to render a form to create new entry
   get '/crossfit_workouts/new' do
@@ -22,7 +22,7 @@ class CrossfitWorkoutsController < ApplicationController
       # create a new workout
       @crossfit_workouts = CrossfitWorkout.create(content: params[:content], user_id: current_user.id, workout_name: params[:workout_name])
       flash[:message] = "Crossfit workout successfully tracked. Great work!" if @crossfit_workouts.id
-      redirect "/crossfit_workouts/#{@crossfit_workout.id}"
+      redirect "/crossfit_workouts/#{@crossfit_workouts.id}"
     else
       flash[:errors] = "Something went wrong - you must provide workout information."
       redirect '/crossfit_workouts/new'

@@ -1,5 +1,6 @@
-All Crossfit Workouts
-<% @crossfit_workouts.each do |crossfit_workout| %>
+ALL Completed Crossfit Workouts
+
+<% @crossfit_workout.each do |crossfit_workout| %>
   <h4><a href="/crossfit_workouts/<%= crossfit_workout.id %>"><%= crossfit_workout.created_at %></a></h4>
   <strong><%= crossfit_workout.workout_name %></strong>
   <p><%= crossfit_workout.content %></p>
