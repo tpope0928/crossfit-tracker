@@ -2,3 +2,14 @@
 
 <h3>Email: </h3>
 <h4><%= @user.email %></h4>
+
+<h3> User Completed Workouts
+
+<%@user.crossfit_workouts.each do |crossfit_workout|%>
+<h4><a href="/crossfit_workouts/<%= crossfit_workout.id %>"><%= crossfit_workout.created_at %></a></h4>
+<strong><%= crossfit_workout.workout_name %></strong>
+<p><%= crossfit_workout.content %></p>
+  <br>
+<%end%>
+
+<a href="/crossfit_workouts/new">Add Workout</a><br>

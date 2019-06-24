@@ -1,7 +1,7 @@
 <h3><%= @crossfit_workout.workout_name %></h3>
 <p><%= @crossfit_workout.content %></p>
 
-<p>Created by: <%= @crossfit_workout.user.name %></p>
+<p>Created by: <%= @crossfit_workout.user.name if @crossfit_workout.user %></p>
 
 <p>created on <%= @crossfit_workout.formatted_created_at %></p>
 
