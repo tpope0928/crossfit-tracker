@@ -1,7 +1,7 @@
 class CrossfitWorkoutsController < ApplicationController
 
   get '/crossfit_workouts' do
-      @crossfit_workout = CrossfitWorkout.all
+      @crossfit_workouts = CrossfitWorkout.all
       erb :'crossfit_workouts/index'
     end
 
