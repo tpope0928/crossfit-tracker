@@ -6,5 +6,10 @@ Edit a Crossfit Workout
   <input type="text" name="title" value ="<%= @crossfit_workout.workout_name %>">
   <label for="content">Content:</label>
   <textarea name="content" style="width:auto; height:auto;"><%= @crossfit_workout.content %></textarea>
+  <label for="time_completed">time_completed:</label>
+  <input type="text" name="time_completed" value ="<%= @crossfit_workout.time_completed %>">
+  <label for="rounds_completed">Rounds Completed:</label>
+  <input type="text" name="rounds_completed" value ="<%= @crossfit_workout.rounds_completed %>">
+
   <input type="submit" name="" value="Edit Workout">
 </form>
