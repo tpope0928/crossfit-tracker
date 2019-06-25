@@ -11,14 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190614015110) do
+ActiveRecord::Schema.define(version: 20190625012508) do
 
   create_table "crossfit_workouts", force: :cascade do |t|
     t.string   "workout_name"
     t.string   "content"
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "time_completed"
+    t.integer  "rounds_completed"
   end
 
   create_table "users", force: :cascade do |t|
