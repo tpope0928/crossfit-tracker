@@ -5,7 +5,7 @@ class CrossfitWorkoutsController < ApplicationController
       erb :'crossfit_workouts/index'
     end
 
-  # get journal_entries/new to render a form to create new entry
+  # get crossfit_workouts/new to render a form to create new entry
   get '/crossfit_workouts/new' do
     redirect_if_not_logged_in
     erb :'/crossfit_workouts/new'
@@ -20,7 +20,7 @@ class CrossfitWorkoutsController < ApplicationController
     # I only want to save the workout if it has some content
     if params[:content] != ""
       # create a new workout
-      @crossfit_workouts = CrossfitWorkout.create(content: params[:content], user_id: current_user.id, workout_name: params[:workout_name])
+      @crossfit_workouts = CrossfitWorkout.create(content: params[:content], user_id: current_user.id, workout_name: params[:workout_name], time_completed: params[:time_completed], rounds_completed: params[:rounds_completed])
       flash[:message] = "Crossfit workout successfully tracked. Great work!" if @crossfit_workouts.id
       redirect "/crossfit_workouts/#{@crossfit_workouts.id}"
     else
