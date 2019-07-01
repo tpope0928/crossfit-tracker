@@ -3,14 +3,14 @@
 <h3>Email: </h3>
 <h4><%= @user.email %></h4>
 
-<h3> User Completed Workouts
+<h3> User Completed Workouts </h3>
 
-<%@user.crossfit_workouts.each do |crossfit_workout|%>
+<% @user.crossfit_workouts.each do |crossfit_workout|%>
 <h4><a href="/crossfit_workouts/<%= crossfit_workout.id %>"><%= crossfit_workout.created_at %></a></h4>
-<strong><%= crossfit_workout[:workout_name] %></strong>
-<p><%= crossfit_workout.content %></p>
-<p> <%= crossfit_workout[:time_completed] %></p>
-<p> <%= crossfit_workout[:rounds_completed] %></p>
+<strong> <%= crossfit_workout.workout_name %></strong>
+<p> <%= crossfit_workout.content %></p>
+<p> Time Completed: <%= crossfit_workout.time_completed %></p>
+<p> Rounds Completed: <%= crossfit_workout.rounds_completed %></p>
   <br>
 <%end%>
 
