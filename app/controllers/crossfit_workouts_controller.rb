@@ -52,7 +52,7 @@ class CrossfitWorkoutsController < ApplicationController
     set_crossfit_workout
     if @crossfit_workout.user == current_user && params[:content] != ""
     # 2. modify (update) the workout entry
-      @crossfit_workout.update(content: params[:content])
+      @crossfit_workout.update(content: params[:content], workout_name: params[:workout_name], time_completed:params[:time_completed], rounds_completed: params[:rounds_completed])
       # 3. redirect to show page
       redirect "/crossfit_workouts/#{@crossfit_workout.id}"
     else

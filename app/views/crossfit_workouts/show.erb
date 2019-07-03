@@ -3,7 +3,7 @@
 <p> Time Completed: <%= @crossfit_workout.time_completed %></p>
 <p> Rounds Completed: <%= @crossfit_workout.rounds_completed %></p>
 
-<p>Created by: <%= @crossfit_workout.user.name if @crossfit_workout.user %></p>
+<p>Created by: <%= current_user.name %></p>
 
 <p>created on <%= @crossfit_workout.formatted_created_at %></p>
 
