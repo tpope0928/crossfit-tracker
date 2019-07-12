@@ -18,15 +18,11 @@ class CrossfitWorkoutsController < ApplicationController
     # I want to create a new workout and save it to the DB
     # I also only want to create a workout if a user is logged in
     # I only want to save the workout if it has some content
-    if params[:content] != ""
+    redirect_if_blank_content
       # create a new workout
-      @crossfit_workouts = CrossfitWorkout.create(content: params[:content], user_id: current_user.id, workout_name: params[:workout_name], time_completed: params[:time_completed], rounds_completed: params[:rounds_completed])
-      flash[:message] = "Crossfit workout successfully tracked. Great work!" if @crossfit_workouts.id
-      redirect "/crossfit_workouts/#{@crossfit_workouts.id}"
-    else
-      flash[:errors] = "Something went wrong - you must provide workout information."
-      redirect '/crossfit_workouts/new'
-    end
+    @crossfit_workouts = CrossfitWorkout.create(content: params[:content], user_id: current_user.id, workout_name: params[:workout_name], time_completed: params[:time_completed], rounds_completed: params[:rounds_completed])
+    flash[:message] = "Crossfit workout successfully tracked. Great work!" if @crossfit_workouts.id
+    redirect "/crossfit_workouts/#{@crossfit_workouts.id}"
   end
 
   # show route for a workout

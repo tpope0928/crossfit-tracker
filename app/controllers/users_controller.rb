@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   post '/users' do
     @user = User.new(params)
-    if @user.save
+    if @user.save # checks validation
       session[:user_id] = @user.id # actually logging the user in
       flash[:message] = "You have successfully created an account, #{@user.name}! Welcome!"
       redirect "/users/#{@user.id}"
