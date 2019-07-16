@@ -46,7 +46,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def redirect_if_blank_content
-      if params[:content] == ""
+      if params[:content] == "" || params[:workout_name] == ""
         flash[:errors] = "Something went wrong - you must provide workout information."
         redirect '/crossfit_workouts/new'
       end

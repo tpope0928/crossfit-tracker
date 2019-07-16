@@ -46,7 +46,8 @@ class CrossfitWorkoutsController < ApplicationController
     redirect_if_not_logged_in
     # 1. find the workout
     set_crossfit_workout
-    if @crossfit_workout.user == current_user && params[:content] != ""
+    if authorized_to_edit?(@crossfit_workout)
+      redirect_if_blank_content
     # 2. modify (update) the workout entry
       @crossfit_workout.update(content: params[:content], workout_name: params[:workout_name], time_completed:params[:time_completed], rounds_completed: params[:rounds_completed])
       # 3. redirect to show page
